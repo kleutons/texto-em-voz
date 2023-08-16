@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: cadetblue;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+main {
+    text-align: center;
+}
+
+#inputs > textarea{
+    border: 2px solid #999;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 17px;
+    color: #fff;
+    width: 300px;
+    height: 100px;
+    outline: 0;
+}
+
+#inputs > select, 
+#inputs > button {
+    display: block;
+    width: 300px;
+    border: 2px solid #999;
+    background: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    color: #fff;
+    font-weight: bold;
+    font-size: 17px;
+    outline: 0;
+}
+
+#inputs > select option{
+     background-color: #333;
+}
+
+#inputs > select:disabled,
+#inputs > button:disabled{
+    opacity: .1;
+}
