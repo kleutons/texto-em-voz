@@ -5,6 +5,7 @@ const speedValueSpan = document.querySelector('#speedValue');
 const volumeInput = document.querySelector('#volume');
 const volumeValueSpan = document.querySelector('#volumeValue');
 const btnSend = document.querySelector('#btnSend');
+const btnStop = document.querySelector('#btnStop');
 
 let voicesList = [];
 let selectedVoiceIndex = 0;
@@ -22,6 +23,21 @@ function populateVoices() {
 
 window.speechSynthesis.addEventListener('voiceschanged', populateVoices);
 
+
+function disableElm(value = true){
+    if(value){
+        voicesSelect.disabled = true;
+        btnSend.disabled = true;
+        speedInput.disabled = true;
+        volumeInput.disabled = true;
+    }else{
+        voicesSelect.disabled = false;
+        btnSend.disabled = false;
+        speedInput.disabled = false;
+        volumeInput.disabled = false;
+    }
+}
+
 btnSend.addEventListener('click', () => {
     const inputText = text.value.trim();
     if (inputText !== '') {
@@ -32,19 +48,18 @@ btnSend.addEventListener('click', () => {
         utterance.rate = speedValue;
         utterance.volume = volumeValue;
         utterance.addEventListener('start', () => {
-            voicesSelect.disabled = true;
-            btnSend.disabled = true;
-            speedInput.disabled = true;
-            volumeInput.disabled = true;
+            disableElm();
         });
         utterance.addEventListener('end', () => {
-            voicesSelect.disabled = false;
-            btnSend.disabled = false;
-            speedInput.disabled = false;
-            volumeInput.disabled = false;
+            disableElm(false);
         });
         window.speechSynthesis.speak(utterance);
     }
+});
+
+btnStop.addEventListener('click', () => {
+    window.speechSynthesis.cancel();
+    disableElm(false);
 });
 
 voicesSelect.addEventListener('change', () => {
