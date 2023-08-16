@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convertendo Texto em Audio</title>
+    <title>Convertendo Texto em Áudio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <h1>Convertendo Texto em Audio</h1>
+        <h1>Convertendo Texto em Áudio</h1>
     </header>
 
     <main id="inputs">
-        <textarea id="text"></textarea>
+        <textarea id="text" placeholder="Digite o texto"></textarea>
         <select id="voices"> </select>
+        
+
+        <span>Volume: </span>
+        <input type="range" id="volume" min="0" max="1" step="0.05" value="1.0">
+        <span id="volumeValue">100</span>%
+        <br>
+
+        <span>Velocidade: </span>
+        <input type="range" id="speed" min="0.25" max="3.0" step="0.25" value="1.0">
+        <span id="speedValue">1.0</span>x
+
         <button id="btnSend">Falar</button>
     </main>
 

@@ -46,8 +46,8 @@ main {
     font-weight: bold;
     font-size: 17px;
     outline: 0;
+    cursor: pointer;
 }
-
 #inputs > select option{
      background-color: #333;
 }
